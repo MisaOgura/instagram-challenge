@@ -1,6 +1,9 @@
+%h1 Your Boards
 - if @boards.any?
-  - @boards.each do |board|
-    = link_to "#{board.name}", board_path(board)
+  %ul
+    - @boards.each do |board|
+      %li
+        %h2= link_to "#{board.name}", board_path(board)
 - else
   %h2 No board has been added
 
