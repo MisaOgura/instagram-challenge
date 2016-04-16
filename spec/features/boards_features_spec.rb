@@ -20,10 +20,7 @@ feature 'Boards:' do
 
   context 'When a user visits the page' do
     scenario 'user can create a board' do
-      visit boards_path
-      click_link 'Create new board'
-      fill_in 'Name', with: 'My Board 1'
-      click_button 'Create board'
+      create_board
       expect(current_path).to eq boards_path
       expect(page).to have_link 'My Board 1'
     end
