@@ -14,6 +14,10 @@ class BoardsController < ApplicationController
     redirect_to boards_path
   end
 
+  def show
+    @board = Board.find(params[:id])
+  end
+
   def board_params
     params.require(:board).permit(:name)
   end

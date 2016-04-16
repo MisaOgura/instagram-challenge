@@ -25,4 +25,14 @@ feature 'Boards:' do
       expect(page).to have_link 'My Board 1'
     end
   end
+
+  context ' Viewing a board' do
+    let!(:board){ Board.create(name: 'My Board 1')}
+    scenario 'user can view an existing board' do
+      visit boards_path
+      click_link 'My Board 1'
+      expect(current_path).to eq board_path(board)
+      expect(page).to have_content 'My Board 1'
+    end
+  end
 end
